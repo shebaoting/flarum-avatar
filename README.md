@@ -8,8 +8,6 @@ The editor is designed for communities that want a playful identity system inste
 
 ## Screenshots
 
-Screenshots captured from `http://bbs.test/avatar/edit`.
-
 ![Avatar editor outfit tab](docs/avatar-editor-1.png)
 
 ![Avatar editor item tab](docs/avatar-editor-2.png)
@@ -160,3 +158,5 @@ MIT
 Community: https://wyz.xyz
 
 Email: th9th@th9th.com
+
+Available for custom Flarum extension development and general software development projects.

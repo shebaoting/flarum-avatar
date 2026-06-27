@@ -161,3 +161,5 @@ MIT
 社区地址：https://wyz.xyz
 
 邮箱地址：th9th@th9th.com
+
+承接各类 Flarum 扩展开发，以及各类软件开发。
