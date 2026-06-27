@@ -10,7 +10,7 @@ import { decorationFromUser, hasDecoration } from './utils/avatarState';
 
 export { default as extend } from './extend';
 
-app.initializers.add('shebaoting-flarum-avatar', () => {
+app.initializers.add('shebaoting-avatar', () => {
   override(AvatarEditor.prototype, 'view', function (original) {
     const user = this.attrs.user;
     const className = classList('AvatarEditor', 'AvatarDecorationAvatarEditor', this.attrs.className);
@@ -27,7 +27,7 @@ app.initializers.add('shebaoting-flarum-avatar', () => {
       );
     }
 
-    const label = app.translator.trans('shebaoting-flarum-avatar.forum.nav.edit_avatar');
+    const label = app.translator.trans('shebaoting-avatar.forum.nav.edit_avatar');
 
     return (
       <Link className={className} href={app.route('flarum-avatar.edit')} title={label} aria-label={label}>

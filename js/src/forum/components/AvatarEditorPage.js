@@ -37,7 +37,7 @@ export default class AvatarEditorPage extends Page {
   oncreate(vnode) {
     super.oncreate(vnode);
 
-    app.setTitle(app.translator.trans('shebaoting-flarum-avatar.forum.editor.title'));
+    app.setTitle(app.translator.trans('shebaoting-avatar.forum.editor.title'));
     app.setTitleCount(0);
   }
 
@@ -47,7 +47,7 @@ export default class AvatarEditorPage extends Page {
         <div className="AvatarDecorationPage">
           <div className="container">
             <div className="AvatarDecorationSignedOut">
-              <h2>{app.translator.trans('shebaoting-flarum-avatar.forum.editor.sign_in_title')}</h2>
+              <h2>{app.translator.trans('shebaoting-avatar.forum.editor.sign_in_title')}</h2>
               <Button className="Button Button--primary" icon="fas fa-sign-in-alt" onclick={() => app.modal.show(() => import('flarum/forum/components/LogInModal'))}>
                 {app.translator.trans('core.forum.header.log_in_link')}
               </Button>
@@ -78,10 +78,10 @@ export default class AvatarEditorPage extends Page {
                     className="Button Button--icon"
                     icon="fas fa-arrow-left"
                     href={app.route.user(app.session.user)}
-                    aria-label={app.translator.trans('shebaoting-flarum-avatar.forum.editor.back')}
-                    title={app.translator.trans('shebaoting-flarum-avatar.forum.editor.back')}
+                    aria-label={app.translator.trans('shebaoting-avatar.forum.editor.back')}
+                    title={app.translator.trans('shebaoting-avatar.forum.editor.back')}
                   />
-                  <h1>{app.translator.trans('shebaoting-flarum-avatar.forum.editor.title')}</h1>
+                  <h1>{app.translator.trans('shebaoting-avatar.forum.editor.title')}</h1>
                 </div>
 
                 <AvatarCanvas manifest={this.manifest} decoration={this.decoration} />
@@ -92,10 +92,10 @@ export default class AvatarEditorPage extends Page {
 
                 <div className="AvatarDecorationActions">
                   <Button className="Button Button--primary" icon="fas fa-save" loading={this.saving} onclick={() => this.save()}>
-                    {app.translator.trans('shebaoting-flarum-avatar.forum.editor.save')}
+                    {app.translator.trans('shebaoting-avatar.forum.editor.save')}
                   </Button>
                   <Button className="Button" icon="fas fa-undo" disabled={selectionCount(this.decoration) === 0} onclick={() => this.reset()}>
-                    {app.translator.trans('shebaoting-flarum-avatar.forum.editor.reset')}
+                    {app.translator.trans('shebaoting-avatar.forum.editor.reset')}
                   </Button>
                 </div>
               </div>
@@ -112,7 +112,7 @@ export default class AvatarEditorPage extends Page {
                   disabled={!this.decoration.selections[this.activeTab]}
                   onclick={() => this.clearActiveTab()}
                 >
-                  {app.translator.trans('shebaoting-flarum-avatar.forum.editor.clear')}
+                  {app.translator.trans('shebaoting-avatar.forum.editor.clear')}
                 </Button>
               </div>
 
@@ -129,7 +129,7 @@ export default class AvatarEditorPage extends Page {
 
     return (
       <div className={classList('AvatarDecorationColorRow', key === 'background' && 'AvatarDecorationColorRow--background')} key={key}>
-        <span>{app.translator.trans(`shebaoting-flarum-avatar.forum.editor.colors.${key}`)}</span>
+        <span>{app.translator.trans(`shebaoting-avatar.forum.editor.colors.${key}`)}</span>
         <div className="AvatarDecorationSwatches">
           {colors.map((color) => (
             <button
@@ -165,7 +165,7 @@ export default class AvatarEditorPage extends Page {
   }
 
   tabLabel(tab) {
-    return app.translator.trans(`shebaoting-flarum-avatar.forum.editor.tabs.${tab.key}`);
+    return app.translator.trans(`shebaoting-avatar.forum.editor.tabs.${tab.key}`);
   }
 
   outfitSections(tab) {
@@ -268,10 +268,10 @@ export default class AvatarEditorPage extends Page {
       .save({ avatarDecoration: normalizeDecoration(this.decoration) })
       .then((user) => {
         this.decoration = decorationFromUser(user);
-        app.alerts.show({ type: 'success' }, app.translator.trans('shebaoting-flarum-avatar.forum.editor.saved'));
+        app.alerts.show({ type: 'success' }, app.translator.trans('shebaoting-avatar.forum.editor.saved'));
       })
       .catch((error) => {
-        app.alerts.show(error.alert || { type: 'error' }, app.translator.trans('shebaoting-flarum-avatar.forum.editor.save_error'));
+        app.alerts.show(error.alert || { type: 'error' }, app.translator.trans('shebaoting-avatar.forum.editor.save_error'));
       })
       .finally(() => {
         this.saving = false;
@@ -295,7 +295,7 @@ export default class AvatarEditorPage extends Page {
         }
       })
       .catch(() => {
-        app.alerts.show({ type: 'error' }, app.translator.trans('shebaoting-flarum-avatar.forum.editor.load_error'));
+        app.alerts.show({ type: 'error' }, app.translator.trans('shebaoting-avatar.forum.editor.load_error'));
       })
       .finally(() => {
         this.loading = false;

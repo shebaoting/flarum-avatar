@@ -52,7 +52,7 @@ php flarum assets:publish
 ```json
 {
   "repositories": {
-    "shebaoting-flarum-avatar": {
+    "shebaoting-avatar": {
       "type": "path",
       "url": "../packages/flarum-avatar"
     }

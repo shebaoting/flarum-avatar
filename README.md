@@ -51,7 +51,7 @@ For local development in this repository, the package can be loaded through a Co
 ```json
 {
   "repositories": {
-    "shebaoting-flarum-avatar": {
+    "shebaoting-avatar": {
       "type": "path",
       "url": "../packages/flarum-avatar"
     }

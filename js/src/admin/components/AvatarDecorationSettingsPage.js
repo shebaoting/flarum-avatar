@@ -6,8 +6,8 @@ export default class AvatarDecorationSettingsPage extends ExtensionPage {
       <div className="ExtensionPage-settings AvatarDecorationAdminPage">
         <div className="container">
           <section className="AvatarDecorationAdminPanel">
-            <h2>{app.translator.trans('shebaoting-flarum-avatar.admin.title')}</h2>
-            <p>{app.translator.trans('shebaoting-flarum-avatar.admin.description')}</p>
+            <h2>{app.translator.trans('shebaoting-avatar.admin.title')}</h2>
+            <p>{app.translator.trans('shebaoting-avatar.admin.description')}</p>
             <code>packages/flarum-avatar/assets/avatars</code>
           </section>
         </div>
