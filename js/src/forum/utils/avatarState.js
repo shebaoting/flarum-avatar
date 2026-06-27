@@ -228,7 +228,7 @@ function assetBaseUrl(path) {
     query.set('v', version);
   }
 
-  return `${app.forum.attribute('baseUrl').replace(/\/$/, '')}/avatar-decoration/asset?${query.toString()}`;
+  return `${app.forum.attribute('baseUrl').replace(/\/$/, '')}/flarum-avatar/asset?${query.toString()}`;
 }
 
 export function itemPreviewUrl(item, colors = DEFAULT_COLORS) {

@@ -4,6 +4,6 @@ import User from 'flarum/common/models/User';
 import AvatarEditorPage from './components/AvatarEditorPage';
 
 export default [
-  new Extend.Routes().add('avatar-decoration.edit', '/avatar/edit', AvatarEditorPage),
+  new Extend.Routes().add('flarum-avatar.edit', '/avatar/edit', AvatarEditorPage),
   new Extend.Model(User).attribute('avatarDecoration').attribute('canEditAvatarDecoration').attribute('avatarDecorationUpdatedAt', Model.transformDate),
 ];

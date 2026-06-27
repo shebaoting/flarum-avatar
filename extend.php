@@ -1,6 +1,6 @@
 <?php
 
-namespace Shebaoting\AvatarDecoration;
+namespace Shebaoting\FlarumAvatar;
 
 use Flarum\Api\Context;
 use Flarum\Api\Resource;
@@ -8,15 +8,15 @@ use Flarum\Api\Schema;
 use Flarum\Extend;
 use Flarum\Frontend\Document;
 use Flarum\User\User;
-use Shebaoting\AvatarDecoration\Controller\AssetManifestController;
-use Shebaoting\AvatarDecoration\Controller\AvatarAssetController;
-use Shebaoting\AvatarDecoration\Support\AvatarAssetRepository;
+use Shebaoting\FlarumAvatar\Controller\AssetManifestController;
+use Shebaoting\FlarumAvatar\Controller\AvatarAssetController;
+use Shebaoting\FlarumAvatar\Support\AvatarAssetRepository;
 
 return [
     (new Extend\Frontend('forum'))
         ->js(__DIR__.'/js/dist/forum.js')
         ->css(__DIR__.'/less/forum.less')
-        ->route('/avatar/edit', 'avatar-decoration.edit', function (Document $document) {
+        ->route('/avatar/edit', 'flarum-avatar.edit', function (Document $document) {
             $document->title = 'Style Avatar';
         }),
 
@@ -51,15 +51,15 @@ return [
     (new Extend\ApiResource(Resource\ForumResource::class))
         ->fields(fn () => [
             Schema\Str::make('avatarDecorationManifestUrl')
-                ->get(fn () => '/api/avatar-decoration/assets'),
+                ->get(fn () => '/api/flarum-avatar/assets'),
             Schema\Str::make('avatarDecorationAssetVersion')
                 ->get(fn () => (string) resolve(AvatarAssetRepository::class)->assetVersion()),
         ]),
 
     (new Extend\Routes('api'))
-        ->get('/avatar-decoration/assets', 'avatar-decoration.assets.index', AssetManifestController::class),
+        ->get('/flarum-avatar/assets', 'flarum-avatar.assets.index', AssetManifestController::class),
 
     (new Extend\Routes('forum'))
-        ->get('/avatar-decoration/asset', 'avatar-decoration.assets.query', AvatarAssetController::class)
-        ->get('/avatar-decoration/assets/{path:.+}', 'avatar-decoration.assets.show', AvatarAssetController::class),
+        ->get('/flarum-avatar/asset', 'flarum-avatar.assets.query', AvatarAssetController::class)
+        ->get('/flarum-avatar/assets/{path:.+}', 'flarum-avatar.assets.show', AvatarAssetController::class),
 ];

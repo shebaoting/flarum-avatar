@@ -1,6 +1,6 @@
 <?php
 
-namespace Shebaoting\AvatarDecoration\Support;
+namespace Shebaoting\FlarumAvatar\Support;
 
 use Flarum\Api\Context;
 use Flarum\User\User;
@@ -546,7 +546,7 @@ class AvatarAssetRepository
         $file = $this->assetPath($path);
         $version = $file ? (string) filemtime($file) : (string) self::VERSION;
 
-        return $baseUrl.'/avatar-decoration/asset?path='.rawurlencode($path).'&v='.$version;
+        return $baseUrl.'/flarum-avatar/asset?path='.rawurlencode($path).'&v='.$version;
     }
 
     private function tabLabel(string $tab): string

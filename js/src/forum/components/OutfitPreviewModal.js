@@ -51,7 +51,7 @@ export default class OutfitPreviewModal extends Modal {
 
         <div className="AvatarDecorationOutfitModal-actions">
           <Button className="Button" onclick={() => this.hide()}>
-            {app.translator.trans('shebaoting-avatar-decoration.forum.editor.cancel')}
+            {app.translator.trans('shebaoting-flarum-avatar.forum.editor.cancel')}
           </Button>
           <Button
             className="Button Button--primary"
@@ -61,7 +61,7 @@ export default class OutfitPreviewModal extends Modal {
               this.hide();
             }}
           >
-            {app.translator.trans('shebaoting-avatar-decoration.forum.editor.apply')}
+            {app.translator.trans('shebaoting-flarum-avatar.forum.editor.apply')}
           </Button>
         </div>
       </div>

@@ -1,12 +1,12 @@
 <?php
 
-namespace Shebaoting\AvatarDecoration\Controller;
+namespace Shebaoting\FlarumAvatar\Controller;
 
 use Laminas\Diactoros\Response;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
-use Shebaoting\AvatarDecoration\Support\AvatarAssetRepository;
+use Shebaoting\FlarumAvatar\Support\AvatarAssetRepository;
 
 class AvatarAssetController implements RequestHandlerInterface
 {

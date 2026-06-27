@@ -1,8 +1,8 @@
-# Avatar Decoration
+# Flarum Avatar
 
 [中文说明](README.zh-Hans.md)
 
-Avatar Decoration is a Reddit-style avatar builder for Flarum 2. It replaces the default avatar upload flow with a layered SVG editor where users can style a full character, preview every item on the base avatar, pick outfits, tune colors, choose a background, and display the finished avatar in forum UI.
+Flarum Avatar is a Reddit-style avatar builder for Flarum 2. It replaces the default avatar upload flow with a layered SVG editor where users can style a full character, preview every item on the base avatar, pick outfits, tune colors, choose a background, and display the finished avatar in forum UI.
 
 The editor is designed for communities that want a playful identity system instead of simple uploaded profile pictures. It keeps the experience inside Flarum, uses the active forum language, and stores each user's selections as structured avatar decoration data.
 
@@ -40,7 +40,7 @@ Screenshots captured from `http://bbs.test/avatar/edit`.
 Install the extension with Composer:
 
 ```bash
-composer require shebaoting/avatar-decoration:^2.0
+composer require shebaoting/flarum-avatar:^2.0
 php flarum migrate
 php flarum cache:clear
 php flarum assets:publish
@@ -51,9 +51,9 @@ For local development in this repository, the package can be loaded through a Co
 ```json
 {
   "repositories": {
-    "shebaoting-avatar-decoration": {
+    "shebaoting-flarum-avatar": {
       "type": "path",
-      "url": "../packages/avatar-decoration"
+      "url": "../packages/flarum-avatar"
     }
   }
 }
@@ -62,7 +62,7 @@ For local development in this repository, the package can be loaded through a Co
 Then require the package from the Flarum root:
 
 ```bash
-composer require shebaoting/avatar-decoration:^2.0
+composer require shebaoting/flarum-avatar:^2.0
 php flarum migrate
 php flarum cache:clear
 php flarum assets:publish

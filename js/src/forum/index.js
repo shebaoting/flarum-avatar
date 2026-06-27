@@ -10,7 +10,7 @@ import { decorationFromUser, hasDecoration } from './utils/avatarState';
 
 export { default as extend } from './extend';
 
-app.initializers.add('shebaoting-avatar-decoration', () => {
+app.initializers.add('shebaoting-flarum-avatar', () => {
   override(AvatarEditor.prototype, 'view', function (original) {
     const user = this.attrs.user;
     const className = classList('AvatarEditor', 'AvatarDecorationAvatarEditor', this.attrs.className);
@@ -27,10 +27,10 @@ app.initializers.add('shebaoting-avatar-decoration', () => {
       );
     }
 
-    const label = app.translator.trans('shebaoting-avatar-decoration.forum.nav.edit_avatar');
+    const label = app.translator.trans('shebaoting-flarum-avatar.forum.nav.edit_avatar');
 
     return (
-      <Link className={className} href={app.route('avatar-decoration.edit')} title={label} aria-label={label}>
+      <Link className={className} href={app.route('flarum-avatar.edit')} title={label} aria-label={label}>
         <Avatar user={user} loading="eager" />
         <span className="Dropdown-toggle AvatarDecorationAvatarEditor-toggle" aria-hidden="true">
           <Icon name="fas fa-user-astronaut" />

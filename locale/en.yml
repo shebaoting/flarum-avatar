@@ -1,6 +1,6 @@
-shebaoting-avatar-decoration:
+shebaoting-flarum-avatar:
   admin:
-    title: Avatar Decoration
+    title: Flarum Avatar
     description: The editor reads SVG and preview assets from this extension folder.
   forum:
     nav:

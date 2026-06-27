@@ -1,12 +1,11 @@
 {
-    "name": "shebaoting/avatar-decoration",
-    "description": "Reddit-style avatar decoration editor for Flarum.",
+    "name": "shebaoting/flarum-avatar",
+    "description": "Reddit-style avatar editor for Flarum.",
     "keywords": [
         "flarum",
         "avatar",
         "decoration"
     ],
-    "version": "2.0.1",
     "type": "flarum-extension",
     "license": "MIT",
     "require": {
@@ -22,12 +21,12 @@
     ],
     "autoload": {
         "psr-4": {
-            "Shebaoting\\AvatarDecoration\\": "src/"
+            "Shebaoting\\FlarumAvatar\\": "src/"
         }
     },
     "extra": {
         "flarum-extension": {
-            "title": "Avatar Decoration",
+            "title": "Flarum Avatar",
             "category": "feature",
             "icon": {
                 "name": "fas fa-user-astronaut",

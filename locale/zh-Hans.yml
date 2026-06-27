@@ -1,4 +1,4 @@
-shebaoting-avatar-decoration:
+shebaoting-flarum-avatar:
   admin:
     title: 头像装饰
     description: 编辑器会从这个扩展目录读取 SVG 和预览素材。

@@ -1,13 +1,13 @@
 <?php
 
-namespace Shebaoting\AvatarDecoration\Controller;
+namespace Shebaoting\FlarumAvatar\Controller;
 
 use Flarum\Http\UrlGenerator;
 use Laminas\Diactoros\Response\JsonResponse;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
-use Shebaoting\AvatarDecoration\Support\AvatarAssetRepository;
+use Shebaoting\FlarumAvatar\Support\AvatarAssetRepository;
 
 class AssetManifestController implements RequestHandlerInterface
 {
@@ -21,7 +21,7 @@ class AssetManifestController implements RequestHandlerInterface
     {
         return new JsonResponse([
             'data' => [
-                'type' => 'avatar-decoration-assets',
+                'type' => 'flarum-avatar-assets',
                 'id' => 'manifest',
                 'attributes' => $this->assets->manifest($this->url->to('forum')->base()),
             ],

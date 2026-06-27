@@ -1402,9 +1402,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@shebaoting/avatar-decoration@workspace:.":
+"@shebaoting/flarum-avatar@workspace:.":
   version: 0.0.0-use.local
-  resolution: "@shebaoting/avatar-decoration@workspace:."
+  resolution: "@shebaoting/flarum-avatar@workspace:."
   dependencies:
     "@flarum/prettier-config": "npm:^1.0.0"
     flarum-tsconfig: "npm:^2.0.0"

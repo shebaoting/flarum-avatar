@@ -41,7 +41,7 @@
 通过 Composer 安装：
 
 ```bash
-composer require shebaoting/avatar-decoration:^2.0
+composer require shebaoting/flarum-avatar:^2.0
 php flarum migrate
 php flarum cache:clear
 php flarum assets:publish
@@ -52,9 +52,9 @@ php flarum assets:publish
 ```json
 {
   "repositories": {
-    "shebaoting-avatar-decoration": {
+    "shebaoting-flarum-avatar": {
       "type": "path",
-      "url": "../packages/avatar-decoration"
+      "url": "../packages/flarum-avatar"
     }
   }
 }
@@ -63,7 +63,7 @@ php flarum assets:publish
 然后在 Flarum 根目录执行：
 
 ```bash
-composer require shebaoting/avatar-decoration:^2.0
+composer require shebaoting/flarum-avatar:^2.0
 php flarum migrate
 php flarum cache:clear
 php flarum assets:publish
