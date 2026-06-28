@@ -34,6 +34,7 @@ export default class AvatarEditorPage extends Page {
     this.activeTab = 'Outfits';
     this.decoration = app.session.user ? decorationFromUser(app.session.user) : emptyDecoration();
     this.visibleLimits = {};
+    this.handleViewportScroll = () => this.maybeAutoShowMore();
 
     this.loadManifest();
   }
@@ -43,6 +44,16 @@ export default class AvatarEditorPage extends Page {
 
     app.setTitle(app.translator.trans('shebaoting-avatar.forum.editor.title'));
     app.setTitleCount(0);
+
+    window.addEventListener('scroll', this.handleViewportScroll, { passive: true });
+    window.addEventListener('resize', this.handleViewportScroll);
+  }
+
+  onremove(vnode) {
+    window.removeEventListener('scroll', this.handleViewportScroll);
+    window.removeEventListener('resize', this.handleViewportScroll);
+
+    super.onremove?.(vnode);
   }
 
   view() {
@@ -161,6 +172,7 @@ export default class AvatarEditorPage extends Page {
         aria-selected={this.activeTab === tab.key ? 'true' : 'false'}
         onclick={() => {
           this.activeTab = tab.key;
+          window.requestAnimationFrame(() => this.maybeAutoShowMore());
         }}
       >
         {this.tabLabel(tab)}
@@ -222,6 +234,39 @@ export default class AvatarEditorPage extends Page {
 
   showMore(key, outfit) {
     this.visibleLimits[key] = this.visibleLimit(key, outfit) + ITEM_LIMIT_STEP;
+  }
+
+  maybeAutoShowMore() {
+    if (this.loading || !this.manifest) return;
+
+    const scrollBottom = window.scrollY + window.innerHeight;
+    const remaining = document.documentElement.scrollHeight - scrollBottom;
+
+    if (remaining > 900) return;
+
+    const active = this.activeTabData();
+    let changed = false;
+
+    if (this.activeTab === 'Outfits') {
+      (active.items || []).forEach((section) => {
+        const key = `${this.activeTab}:${section.key}`;
+        const items = section.items || [];
+
+        if (this.visibleLimit(key, true) < items.length) {
+          this.showMore(key, true);
+          changed = true;
+        }
+      });
+    } else {
+      const items = active.items || [];
+
+      if (this.visibleLimit(this.activeTab, false) < items.length) {
+        this.showMore(this.activeTab, false);
+        changed = true;
+      }
+    }
+
+    if (changed) m.redraw();
   }
 
   itemPreview(item, outfit) {

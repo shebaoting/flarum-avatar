@@ -216,22 +216,24 @@
 }
 
 .AvatarDecorationGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 112px);
-  justify-content: start;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  align-items: flex-start;
   width: 100%;
   max-width: 100%;
   min-width: 0;
-  overflow: hidden;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  overflow-y: visible;
   gap: 10px;
 }
 
 .AvatarDecorationGrid--compact {
-  grid-template-columns: repeat(auto-fill, 72px);
-  justify-content: start;
   gap: 8px;
 
   .AvatarDecorationItemCard {
+    flex-basis: 72px;
     width: 72px;
     height: 96px;
     border-radius: 6px;
@@ -245,10 +247,12 @@
 .AvatarDecorationItemCard {
   display: grid;
   grid-template-rows: 1fr;
+  flex: 0 0 112px;
   width: 112px;
   aspect-ratio: 3 / 4;
   min-width: 0;
   max-width: 100%;
+  box-sizing: border-box;
   overflow: hidden;
   padding: 0;
   border: 1px solid #e2e8f0;
@@ -295,7 +299,7 @@
 }
 
 .AvatarDecorationLoadMore {
-  grid-column: 1 / -1;
+  flex: 0 0 100%;
   justify-self: start;
   min-width: 136px;
   margin-top: 4px;
@@ -509,15 +513,18 @@
   }
 
   .AvatarDecorationGrid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
   }
 
-  .AvatarDecorationGrid--compact {
-    grid-template-columns: repeat(auto-fill, 64px);
+  .AvatarDecorationGrid:not(.AvatarDecorationGrid--compact) .AvatarDecorationItemCard {
+    flex-basis: calc((100% - 10px) / 2);
+    width: calc((100% - 10px) / 2);
   }
 
-  .AvatarDecorationItemCard {
-    grid-template-rows: 1fr;
+  .AvatarDecorationGrid--compact .AvatarDecorationItemCard {
+    flex-basis: 64px;
+    width: 64px;
+    height: 86px;
   }
 
   .AvatarDecorationOutfitModal-body {
